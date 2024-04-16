@@ -1,0 +1,4 @@
+{:deps {}
+ :paths ["src"]
+ :tasks {}
+ :mvn/local-repo ".m2/repository"}

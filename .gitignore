@@ -56,3 +56,10 @@ out/*
 
 tests/out/*
 !tests/out/.gitkeep
+
+# Clojure/Babashka
+.calva/
+.clj-kondo/
+.cpcache/
+.lsp/
+.m2/
