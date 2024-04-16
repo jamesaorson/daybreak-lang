@@ -1,4 +1,6 @@
-(ns daybreak.frontend)
+(ns daybreak.frontend
+  (:require [daybreak.lex :as lex]))
 
-(defn hello []
-  (println "Hello, world!"))
+(defn run [program]
+  (lex/lex
+   program))
