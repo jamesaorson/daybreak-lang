@@ -6,11 +6,11 @@
   [input]
   (println "Lexing:\n" input))
 
-(defn make-msg-lex [lexer]
+(defmacro make-msg-lex [lexer]
   {:kind :lex
    :lexer lexer})
 
-(defn make-msg-lex-done [token-stream]
+(defmacro make-msg-lex-done [token-stream]
   {:kind :lex-done
    :token-stream token-stream})
 

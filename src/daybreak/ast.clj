@@ -1,17 +1,21 @@
 (ns daybreak.ast
   (:require [clojure.core.match :refer [match]]))
 
-(def ^:private DEFAULT
-  {:kind :ast
-   :ast []})
-
-(defn make-msg-ast-parse [token-stream]
+(defmacro make-msg-ast-parse [token-stream]
   {:kind :ast-parse
    :token-stream token-stream})
 
-(defn make-msg-ast-parse-done [ast]
+(defmacro make-msg-ast-parse-done [ast]
   {:kind :ast-parse-done
    :ast ast})
+
+(defmacro make-node [kind & {:keys [value children] :or {value nil children []}}]
+  {:kind kind
+   :value value
+   :children children})
+
+(defmacro ^:private HELLO-WORLD []
+  (make-node :program))
 
 (defn msg-handler [{:keys [data-bag msg msg-handler]}]
   (match [msg]
@@ -19,7 +23,7 @@
       :token-stream _}] {:running? true
                          :data-bag data-bag
                          :msg-handler msg-handler
-                         :new-msgs [(make-msg-ast-parse-done DEFAULT)]}
+                         :new-msgs [(make-msg-ast-parse-done (HELLO-WORLD))]}
     [{:kind :ast-parse-done
       :ast ast}] {:running? false
                   :data-bag (assoc data-bag
