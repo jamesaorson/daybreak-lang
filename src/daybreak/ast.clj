@@ -23,7 +23,7 @@
              :value nil
              :children children))
 
-(defmacro make-fun-decl [{:keys [name children] :or {name children []}}]
+(defmacro make-fun-decl [name & {:keys [children] :or {children []}}]
   (make-node fun-decl
              :value name
              :children children))
