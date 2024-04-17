@@ -1,4 +1,4 @@
-{:deps {}
+{:deps {net.clojars.jamesaorson/brain {:mvn/version "0.1.0"}}
  :paths ["src"]
  :tasks {}
  :mvn/local-repo ".m2/repository"}

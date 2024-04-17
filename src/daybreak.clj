@@ -7,7 +7,7 @@
   (if (some #(= % "--only-download-deps") args)
     (System/exit 0)
     (for [program [programs/HELLO-WORLD]]
-      (frontend/run program))))
+      (frontend/run-source program))))
 
 (when (= *file* (System/getProperty "babashka.file"))
   (-main *command-line-args*))
