@@ -42,9 +42,10 @@
            :data-bag (assoc data-bag :unknown-msg msg)
            :msg-handler msg-handler}))
 
-(defn run-source [program]
-  (brain/spark msg-handler {:source program}))
-
-(defn run [file]
-  (run-source
-   (slurp (fs/file file))))
+(defmulti run (fn [source] (type source)))
+(defmethod run String [source]
+  (brain/spark msg-handler {:source source}))
+(defmethod run java.io.File [file]
+  (run (slurp file)))
+(defmethod run java.nio.file.Path [file]
+  (run (fs/file file)))
