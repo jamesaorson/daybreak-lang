@@ -29,6 +29,9 @@ build: $(M2_DIR)
 run: $(M2_DIR)
 	bb -m $(MAIN_NAMESPACE)
 
+test: $(M2_DIR)
+	bb -m $(MAIN_NAMESPACE) --test
+
 clean:
 	rm -rf $(M2_DIR)
 

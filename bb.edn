@@ -1,4 +1,5 @@
-{:deps {}
+{:deps {org.clojure/core.match {:mvn/version "1.1.0"}
+        net.clojars.jamesaorson/brain {:mvn/version "0.1.0"}}
  :paths ["src"]
  :tasks {}
  :mvn/local-repo ".m2/repository"}
