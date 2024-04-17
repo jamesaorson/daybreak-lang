@@ -9,23 +9,21 @@
   {:kind :ast-parse-done
    :ast ast})
 
-(defmacro make-node [kind & {:keys [value children tags] :or {value nil children [] tags {}}}]
+(defmacro make-node [kind & {:keys [children tags] :or {children [] tags {}}}]
   {:kind kind
-   :value value
    :children children
    :tags tags})
 
 (def program "program")
 (defmacro make-program [{:keys [children] :or {children []}}]
   (make-node program
-             :value nil
              :children children))
 
 (def fun-decl "fun-decl")
 (defmacro make-fun-decl [name & {:keys [children] :or {children []}}]
   (make-node fun-decl
-             :value name
-             :children children))
+             :children children
+             :tags {:name name}))
 
 (defmacro ^:private HELLO-WORLD []
   (make-program [(make-fun-decl "main")]))
