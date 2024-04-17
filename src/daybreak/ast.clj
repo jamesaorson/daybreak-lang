@@ -16,13 +16,12 @@
    :tags tags})
 
 (def program "program")
-(def fun-decl "fun-decl")
-
 (defmacro make-program [{:keys [children] :or {children []}}]
   (make-node program
              :value nil
              :children children))
 
+(def fun-decl "fun-decl")
 (defmacro make-fun-decl [name & {:keys [children] :or {children []}}]
   (make-node fun-decl
              :value name
