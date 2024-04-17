@@ -4,7 +4,7 @@
             [daybreak.lex :as lex]
             [net.clojars.jamesaorson.brain.core :as brain]))
 
-(defn make-msg-load-source [source]
+(defmacro make-msg-load-source [source]
   {:kind :load-source
    :source source})
 
